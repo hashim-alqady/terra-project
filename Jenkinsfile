@@ -1,13 +1,7 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your Terraform files from version control
-                git 'https://github.com/your-repo.git'
-            }
-        }
+    
 
         stage('Terraform Init') {
             steps {
