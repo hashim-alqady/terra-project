@@ -14,7 +14,11 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         echo 'start plan'
-        sh 'terraform plan'
+        withCredentials([usernamePassword(credentialsId: 'aws', usernameVariable: 'user', passwordVariable: 'password')]) {
+            echo 'start build2'
+            sh "aws configure -u $user -p $password"
+            sh 'terraform plan'
+        }
       }
     }
 
