@@ -1,8 +1,8 @@
 pipeline {
     agent any
-
-    
-
+      withCredentials([usernamePassword(credentialsId: 'aws', usernameVariable: 'user', passwordVariable: 'password')]) {
+            echo 'start build2'
+        
         stage('Terraform Init') {
             steps {
                 // Initialize the Terraform working directory
@@ -23,4 +23,5 @@ pipeline {
                 sh 'terraform apply -input=false tfplan'
             }
         }
-    }
+      }
+} 
