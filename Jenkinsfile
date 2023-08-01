@@ -18,7 +18,7 @@ pipeline {
             echo 'start build2'
            // sh "aws configure -u $user -p $password"
             sh 'terraform plan'
-        }
+        //}
       }
     }
 
