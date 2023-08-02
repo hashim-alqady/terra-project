@@ -29,12 +29,12 @@ pipeline {
       }
     }
 
-    stage('Install Docker Engine') {
-      steps {
-        script {
-          sh 'ssh -i ~/.ssh/id_rsa ubuntu@${EC2_INSTANCE_IP}  "sudo apt-get update -y && sudo apt-get install -y docker.io"'
-        }
-      }
+    //stage('Install Docker Engine') {
+      //steps {
+        //script {
+          //sh 'ssh -i ~/.ssh/id_rsa ubuntu@${EC2_INSTANCE_IP}  "sudo apt-get update -y && sudo apt-get install -y docker.io"'
+        //}
+      //}
     }
 
   }
