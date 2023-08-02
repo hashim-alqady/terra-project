@@ -8,10 +8,16 @@
   #}
   #}
 
+    resource "aws_key_pair" "ssh_key" {
+  key_name   = "ssh_key"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+
+
   resource "aws_instance" "my-instance" {
   ami           = "ami-0c94855ba95c71c99"
   instance_type = "t2.micro"
-  #key_name      = "my_key.pub"
+  key_name      = aws_key_pair.ssh_key.key_name
   #subnet_id     = "your_subnet_id"
   security_groups = ["${aws_security_group.upuntusg.name}"]
 
@@ -19,4 +25,6 @@
     Name = "my-instance"
   }
 }
+
+
 

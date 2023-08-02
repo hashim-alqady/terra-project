@@ -29,13 +29,13 @@ pipeline {
       }
     }
 
-     // stage('Install Docker Engine') {
-     // steps {
-       // script {
-      //    sh 'ssh -i /var/jenkins_home/hashim/my_key ubuntu@54.174.119.47 "sudo apt-get update -y && sudo apt-get install -y docker.io"'
-     //   }
-     // }
-   // }
+    stage('Install Docker Engine') {
+      steps {
+        script {
+          sh 'ssh -i ~/.ssh/id_rsa.pub ubuntu@${EC2_INSTANCE_IP}  "sudo apt-get update -y && sudo apt-get install -y docker.io"'
+        }
+      }
+    }
 
   }
 }
