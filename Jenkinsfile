@@ -29,11 +29,5 @@ pipeline {
       }
     }
 
-    stage('docker test') {
-      steps {
-        echo 'start docker test'
-        sh 'docker ps'
-      }
-    }
   }
 }
