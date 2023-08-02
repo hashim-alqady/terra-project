@@ -23,6 +23,13 @@
 
   tags = {
     Name = "my-instance"
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "${aws_key_pair.key1.public_key}" >> /home/ubuntu/.ssh/authorized_keys
+              chmod 600 /home/ubuntu/.ssh/authorized_keys
+              chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
+              EOF
   }
 }
 
