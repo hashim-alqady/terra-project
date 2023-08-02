@@ -25,7 +25,7 @@ pipeline {
     stage('Terraform Apply') {
       steps {
         echo 'start apply'
-        sh 'terraform apply -auto-approve'
+        sh 'terraform destroy -auto-approve'
       }
     }
 
