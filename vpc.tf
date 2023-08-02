@@ -23,6 +23,7 @@
 
   tags = {
     Name = "my-instance"
+  }
 
   user_data = <<-EOF
               #!/bin/bash
@@ -30,7 +31,7 @@
               chmod 600 /home/ubuntu/.ssh/authorized_keys
               chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
               EOF
-  }
+ 
 }
 
 
