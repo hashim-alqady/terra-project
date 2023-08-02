@@ -29,5 +29,12 @@ pipeline {
       }
     }
 
+      stage('Install Docker Engine') {
+      steps {
+        script {
+          sh 'ssh -i /var/jenkins_home/hashim/my_key ubuntu@54.174.119.47 "sudo apt-get update -y && sudo apt-get install -y docker.io"'
+        }
+      }
+
   }
 }
