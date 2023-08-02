@@ -35,7 +35,7 @@ pipeline {
           //sh 'ssh -i ~/.ssh/id_rsa ubuntu@${EC2_INSTANCE_IP}  "sudo apt-get update -y && sudo apt-get install -y docker.io"'
         //}
       //}
-    }
+    //}
 
   }
 }
