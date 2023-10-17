@@ -24,16 +24,17 @@ pipeline {
 
     stage('Terraform Apply') {
       steps {
-        echo 'start apply'
-        sh 'terraform apply -auto-approve'
+        echo 'start destroy'
+        sh 'terraform destroy -auto-approve'
       }
     }
 
     stage('Install Docker Engine') {
       steps {
-        script {
-          sh 'ssh -i "ssh_key.pem" ec2-user@ec2-44-202-64-22.compute-1.amazonaws.com  "sudo yum update -y && sudo yum install docker -y && sudo service docker start && sudo usermod -a -G docker ec2-user && docker --version"'
-        }
+        echo 'done'
+        //script {
+          //sh 'ssh -i "ssh_key.pem" ec2-user@ec2-44-202-64-22.compute-1.amazonaws.com  "sudo yum update -y && sudo yum install docker -y && sudo service docker start && sudo usermod -a -G docker ec2-user && docker --version"'
+        //}
       }
     }
 
